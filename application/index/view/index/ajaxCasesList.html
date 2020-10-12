@@ -1,0 +1,15 @@
+            
+            {volist name="$casesList" id="vo"}
+            <div class="layui-col-sm6 layui-col-md3" onmousemove="citrixMouseoverCase(this)" onmouseout="citrixMouseoutCase(this)">
+                <div class="citrixCell">
+                    <img src="{$vo.img|citrixGetUrl}">
+                </div>
+                <div class="citrixCellImg citrixCellNone">
+                    <dl class="citrixCellQrCode">
+                        <dt>扫描下方二维码</dt>
+                        <dd>查看详情</dd>
+                    </dl>
+                    <img src="{$vo.code_img|citrixGetUrl}">
+                </div>
+            </div>
+            {/volist}

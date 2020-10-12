@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="__FONT__/css/font-awesome.min.css" media="all"/>
+    <link rel="stylesheet" href="__LAY__/css/layui.css" media="all" />
+    <link rel="stylesheet" href="__CSS__/public.css" media="all" />
+    <style type="text/css">
+        .citrixCheckLevel
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body class="childrenBody">
+    <form class="layui-form layui-form-pane" id="form_array">
+        <div class="layui-form-item">
+            <label class="layui-form-label">上级菜单</label>
+            <div class="layui-input-block">
+                <select name="data_cate_id">
+                    <option value="0">请选择上级菜单</option>
+                    {volist name="$cateList" id="vo"}
+                    <option value="{$vo.id}" {notempty name="$getInfo.data_cate_id"}{if condition="$getInfo.data_cate_id eq $vo.id"} selected="selected"{/if}{/notempty}>{$vo.str}{$vo.name}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input" lay-verify="required" {notempty name="$getInfo.title"} value="{$getInfo.title}"{/notempty}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">标签</label>
+            <div class="layui-input-block">
+              <input type="text" name="tag" lay-verify="required"  placeholder="请输入标签" autocomplete="off" class="layui-input" {notempty name="$getInfo.tag"} value="{$getInfo.tag}"{/notempty}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+              <input type="text" name="sort" lay-verify="required"  placeholder="请输入排序" autocomplete="off" class="layui-input" {notempty name="$getInfo.sort"} value="{$getInfo.sort}"{else} value="10" {/notempty}>
+            </div>
+        </div>
+        <div class="layui-upload" id="img">
+            <label class="layui-form-label">图片</label>
+            <button type="button" class="layui-btn" id="cases_click">上传图片</button>
+            <div class="layui-upload-list">
+                <label class="layui-form-label" style="border: 1px solid #fff;"></label>
+                <img class="layui-upload-img" id="cases_img" width="150" height="150" {notempty name="$getInfo.img"} src="{$getInfo.img|citrixGetUrl}" {/notempty}>
+                <input type="hidden" name="img" id="cases_thumb" {notempty name="$getInfo.img"} value="{$getInfo.img}"{/notempty}>
+            </div>
+        </div>
+        <div class="layui-upload" id="img">
+            <label class="layui-form-label">二维码</label>
+            <button type="button" class="layui-btn" id="code_click">上传二维码</button>
+            <div class="layui-upload-list">
+                <label class="layui-form-label" style="border: 1px solid #fff;"></label>
+                <img class="layui-upload-img" id="code_img" width="150" height="150" {notempty name="$getInfo.img"} src="{$getInfo.code_img|citrixGetUrl}" {/notempty}>
+                <input type="hidden" name="code_img" id="code_thumb" {notempty name="$getInfo.code_img"} value="{$getInfo.code_img}"{/notempty}>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">简单描述</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入简单描述" class="layui-textarea" name="description" value="{$getInfo.description}" lay-verify="required">{notempty name="$getInfo.description"}{$getInfo.description|htmlentities}{/notempty}</textarea>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">案例内容</label>
+            <div class="layui-input-block" >
+                <textarea placeholder="请输入案例内容" name="content" id="container">{notempty name="$getInfo.content"}{$getInfo.content|htmlentities}{/notempty}</textarea>
+            </div>
+        </div>
+        {notempty name="$getInfo"}
+        <input type="hidden" name="id" value="{$getInfo.id}">
+        {/notempty}
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit lay-filter="form_submit">提交</button>
+        </div>
+    </form>
+    <script src="__JQ__/jquery.js"></script>
+    <script type="text/javascript" src="__LAY__/layui.js"></script>
+    <script type="text/javascript">
+        layui.use(['form','upload'], function()
+        {
+            var form     = layui.form,
+                upload = layui.upload;
+            //iframe句柄
+            var layerIframe = parent.layer.getFrameIndex(window.name);
+            //上传图片
+            upload.render({
+                elem: '#cases_click' //绑定元素
+                ,url: "{:url('admin/common/upload')}" //上传接口
+                ,data:{use:'cases_default'}
+                ,done: function(res)
+                {
+                    $("#cases_img").attr('src',res.src);
+                    $("#cases_thumb").val(res.id);
+                }
+                ,error: function()
+                {
+                    layer.alert("Systematic anomaly！",{icon:2});
+                }
+            });
+            //上传二维码
+            upload.render({
+                elem: '#code_click' //绑定元素
+                ,url: "{:url('admin/common/upload')}" //上传接口
+                ,data:{use:'code_default'}
+                ,done: function(res)
+                {
+                    $("#code_img").attr('src',res.src);
+                    $("#code_thumb").val(res.id);
+                }
+                ,error: function()
+                {
+                    layer.alert("Systematic anomaly！",{icon:2});
+                }
+            });
+            //表单提交
+            form.on("submit(form_submit)",function(data){
+                $.ajax({
+                    url:"{:url('admin/cases/publish')}",
+                    data:$('#form_array').serialize(),
+                    type:'post',
+                    async: false,
+                    dataType : 'json',
+                    success:function(res) 
+                    {
+                        if(res.code == 1)
+                        {
+                            layer.msg(res.msg,{offset: '50px',anim: 1});
+                            setTimeout(function(){
+                                parent.layer.close(layerIframe);
+                            },1500)
+                        }else
+                        {
+                            layer.msg(res.msg);
+                        }
+                    },
+                    error:function()
+                    {
+                        layer.alert("Systematic anomaly！",{icon:2});
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+</body>
+</html>

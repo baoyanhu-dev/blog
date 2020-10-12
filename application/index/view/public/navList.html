@@ -1,0 +1,24 @@
+
+<div class="nav index citrixNav">
+    <div class="layui-container">
+        <div class="nav-logo">
+            <a href="{:citrixGetAdv(2523,2)}">
+                <img src="{:citrixGetAdv(2523,1)}" >
+            </a>
+        </div>
+        <div class="nav-list">
+            <button>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="layui-nav">
+                {volist name="$navList" id="vo"}
+                <li class="layui-nav-item">
+                    <a href="{$vo.content}" {notempty name="citrixOn"} {if condition="$citrixOn eq $vo.id"} style="color: #5FB878!important;"{/if}{/notempty}>{$vo.title}</a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+</div>

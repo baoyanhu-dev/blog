@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/article/article",
+    "pages/list/list"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#01AAED",
+    "navigationBarTitleText": "云信网络",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eee"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#01AAED",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/home-page-hover.png",
+        "iconPath": "images/home-page.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/list-page-hover.png",
+        "iconPath": "images/list-page.png",
+        "pagePath": "pages/list/list",
+        "text": "发现"
+      }
+    ]
+  },
+  "onReachBottomDistance": 150,
+  "sitemapLocation": "sitemap.json"
+}

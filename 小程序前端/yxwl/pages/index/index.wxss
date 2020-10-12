@@ -1,0 +1,55 @@
+/**index.wxss**/
+page{
+  background-color: #eee;
+}
+swiper{
+  width:100%;
+  height:420rpx;
+}
+swiper image{
+  width:100%;
+  height:420rpx;
+}
+.list{
+  width:98%;
+  padding:1%;
+  display: flex;
+  background: #fff;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.list image{
+  width:20%;
+  border-radius: 10rpx;
+  height:148rpx;
+}
+.list .list-right{
+  width:75%;
+  padding: 0 2.5%;
+  height:100%;
+  overflow: hidden;
+}
+.list .list-title{
+  width:100%;
+  max-height:20%;
+  font-size:16px;
+  margin-bottom: 15rpx;
+  color:#333;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.list .list-desc{
+  width:100%;
+  max-height:80%;
+  font-size:12px;
+  color:#777;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

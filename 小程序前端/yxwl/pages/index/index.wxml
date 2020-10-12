@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<!--banner-->
+<swiper indicator-dots="true"
+  autoplay="true" interval="5000" duration="1000" circular="true">
+  <block wx:for="{{bannerImgUrl}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!--list-->
+<view class="row" wx:for="{{articleList}}" wx:key="key" bindtap="rowTapped" data-id="{{item.id}}">
+  <!-- <navigator url="../article/article_id?={{item.id}}" hover-class="navigator-hover"> -->
+   <navigator hover-class="navigator-hover"  catchtap="onTouch" id="{{item.id}}">
+    <view class="list">
+      <image src="{{item.filepath}}"></image>
+      <view class="list-right">
+        <view class="list-title">{{item.title}}</view>
+        <view class="list-desc">{{item.tag}}</view>
+      </view>
+    </view>
+  </navigator>
+</view>
+<view wx:if="{{is_more}}">
+  <i-load-more />
+</view>
+<view wx:if="{{is_null}}">
+  <i-load-more tip="暂无数据" loading="{{ false }}" />
+</view>
+<i-message id="message" />

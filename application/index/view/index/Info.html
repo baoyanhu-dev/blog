@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    {include file="public/header"}
+</head>
+<body>
+{include file="public/navList"}
+<!-- banner部分 -->
+<div class="banner about">
+    <div class="title">
+        <p>{$info.title}</p>
+        <p class="en">{$info.tag}</p>
+    </div>
+</div>
+  <!-- main部分 -->
+  <div class="main-about">
+    <div class="layui-container">
+      <div class="layui-row">
+        <div class="tabIntro" style="padding:20px;">
+            {$info.content}   
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- footer部分 -->
+{include file="public/footer"}

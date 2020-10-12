@@ -1,0 +1,379 @@
+.citrixDoorVessel
+{
+	padding-bottom: 25px;
+}
+.citrixDoor
+{
+	height: 50px;
+	line-height: 50px;
+}
+.citrixDoorTitle
+{
+	font-family: 宋体;
+    color: #2db5a3;
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.citrixDoorMore
+{
+	font-family: 宋体;
+    color: #2db5a3;
+	float: right;
+	height: 50px;
+	line-height: 50px;
+}
+.citrixParam1
+{
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+.citrixParam2
+{
+	padding-top: 20px;
+	padding-bottom: 30px!important;
+}
+.citrixParam3
+{
+	font-family: 宋体;
+    font-size: 36px!important;
+    line-height: 100px!important;
+}
+.citrixParam4
+{
+	padding-top: 20px;
+	padding-bottom: 30px!important;
+}
+.citrixParam5
+{
+    border-bottom: 2px solid #5fb878;
+}
+.citrixCell img{
+    height: 320px;
+    width: 100%;
+}
+.citrixCellImg
+{
+	box-shadow: 0 0 3px 3px #EEE;
+    transition: 0.3s;
+}
+.citrixCellImg img
+{
+	height: 220px;
+    max-width: 100%;
+    margin:10px 30px 10px;
+    width:220px;
+}
+.citrixCellQrCode
+{
+	height: 80px;
+}
+.citrixCellQrCode dt
+{
+	height: 50px;
+	line-height: 60px;
+	text-align: center;
+}
+.citrixCellQrCode dd
+{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.citrixCellBlock
+{
+	display: block;
+}
+.citrixCellNone
+{
+	display: none;
+}
+.citrixCellNone img
+{
+	width: 100%;
+}
+.citrixNewsVessel
+{
+	padding-top: 20px!important;
+	border-bottom: 0px solid #fff!important;
+}
+.citrixNewsVessel div
+{
+	width: 100%;
+}
+.citrixNewsVessel div img
+{
+    width: 98%;
+    margin-left: 1%;
+}
+.citrixNewsBox
+{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+.citrixNewsBox:hover {
+    transform: scale(1.2,1.2);
+    transition: 2s;
+}
+.citrixNewsBoxTitle
+{
+	font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 1;
+    left: 32px;
+    top: 45px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    line-height: 110px;
+}
+.citrixNewsBoxDesc
+{
+    font-size: 16px;
+    color: #fff!important;
+    line-height: 1;
+    left: 32px;
+    top: 85px;
+    width: 100%;
+    text-align: center;
+    height: 90px!important;
+    line-height: 90px!important;
+}
+.citrixNewsItem
+{
+	text-align: left;
+	padding: 0;
+	border-bottom: 0px solid #fff!important;
+}
+.citrixNewsItem dt
+{
+	color: #999;
+	float: left;
+	/*width: 23%;*/
+}
+.citrixNewsItem dd
+{
+	float: left;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 75%;
+    font-size: 14px;
+    color: #666;
+    margin-left: 2%;
+}
+.citrixPage
+{
+	padding-top: 25px;
+}
+.citrixCaseName
+{
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+.citrixCaseName span a
+{
+	text-align: center;
+	padding: 5px 10px;
+	border: 1px solid #5fb878;
+}
+.citrixCur
+{
+	background: #5fb878;
+}
+.citrixAnimatedVessel
+{
+	background: url(/public/index/img/r-bg.png) no-repeat center center;
+    background-size: cover;
+    height: 140px;    
+    padding: 45px 0 27px;
+}
+.citrixAnimatedHeading
+{
+	position: relative;
+    z-index: 1;
+    text-align: center;
+}
+.citrixAnimatedHeading div span
+{
+	color: #fff;
+}
+.citrixAnimated
+{
+	color: #fff;
+    font-size: 50px;
+    font-weight: 400;
+    margin: 0 auto 7px;
+    text-transform: uppercase;
+    line-height: 50px;
+}
+.citrixAnimatedImgs
+{
+    background: url(/public/index/img/title-img.png) no-repeat center top;
+    height: 50px;
+    width: 100%;
+}
+.citrixCompanyInfo
+{
+	padding: 50px 10px 20px 10px;
+}
+.citrixCompanyInfoH2
+{
+	font-size: 40px;
+	display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-family: Lato-Bold;
+    font-weight: bold;
+    color: rgba(62,178,150,1);
+    height: 30px;
+    line-height: 30px;
+}
+.citrixCompanyInfoSpan
+{
+	display: inline-block;
+    margin-top: 28px;
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(62,178,150,1);
+    line-height: 30px;
+}
+.citrixCompanyInfoP
+{
+	display: inline-block;
+    margin: 28px 4% 0 0 ;
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(99,98,98,1);
+    line-height: 30px;
+}
+.tpCitrixPic1
+{
+	background: url(../img/home_bg1.png);
+	-moz-background-size:100% 100%; background-size:100% 100%;
+    left: 0;
+}
+.tpCitrixZs1
+{
+    height: 400px;
+    background: url(../img/zs1.png);
+    -moz-background-size:100% 100%; background-size:100% 100%;
+}
+.tpCitrixPic2
+{
+	background: url(../img/home_bg2.png);
+	-moz-background-size:100% 100%; background-size:100% 100%;
+    left: 0;
+}
+.tpCitrixZs2
+{
+    height: 400px;
+    background: url(../img/zs2.png);
+    -moz-background-size:100% 100%; background-size:100% 100%;
+}
+.tpCitrixPic3
+{
+	background: url(../img/home_bg3.png);
+	-moz-background-size:100% 100%; background-size:100% 100%;
+    left: 0;
+}
+.tpCitrixZs3
+{
+    height: 400px;
+    background: url(../img/zs3.png);
+    -moz-background-size:100% 100%; background-size:100% 100%;
+}
+.tpCitrixPic4
+{
+	background: url(../img/home_bg4.png);
+	-moz-background-size:100% 100%; background-size:100% 100%;
+    left: 0;
+}
+.tpCitrixZs4
+{
+    height: 400px;
+    background: url(../img/zs4.png);
+    -moz-background-size:100% 100%; background-size:100% 100%;
+}
+.tpCitrixServiceH1
+{
+	color: #5fb878;
+    font-size: 50px;
+    line-height: 80px;
+}
+.tpCitrixServiceH2
+{
+    color: #777;
+    font-size: 25px;
+    line-height: 50px;
+}
+.tpCitrixService
+{
+	text-align: center;
+}
+.tpCitrixService .tpCitrixServiceH1
+{
+	margin-top:130px;
+}
+.citrixColor
+{
+    color: #a5aaa9;
+}
+.citrixReport
+{
+    text-align: center;
+    color: #a5aaa9;
+    margin-top:10px;
+    border-right: 2px solid #A5AAA9;    
+}
+.citrixReport4
+{
+    text-align: center;
+    color: #a5aaa9;
+    margin-top:10px; 
+}
+.citrixReport2
+{
+    margin-top:30px;
+}
+.citrixReport2 p
+{
+    text-align: center;color: #a5aaa9;
+}
+.citrixReport3
+{
+    text-align: center;color: #a5aaa9;
+}
+.citrixReport3 img
+{
+    border-radius: 50%; 
+    height:40px;
+    width:40px;
+}
+.citrixReportImg
+{
+    margin-left:20px;height:130px;margin-top:20px;
+}
+.citrixServicehotline
+{
+    margin-left:20px;
+}
+.citrixReportImg dd
+{
+    color: #BBB!important;
+    text-align: center;
+}
+.citrixNav
+{
+    /*background: #FFFFFF!important;*/
+    box-shadow: 1px -1px 25px #888888;
+}

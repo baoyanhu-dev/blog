@@ -1,0 +1,17 @@
+
+1.导入数据库
+
+2.修改
+database.php
+   // 服务器地址
+    'hostname'       => 'localhost',
+    // 数据库名
+    'database'       => 'tp123456',
+    // 用户名
+    'username'       => 'tp123456',
+    // 密码
+    'password'       => 'tp123456',
+
+3.访问后台
+默认账户:admin@qq.com
+密码:123456

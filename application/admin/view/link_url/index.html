@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="__FONT__/css/font-awesome.min.css" media="all"/>
+    <link rel="stylesheet" href="__LAY__/css/layui.css" media="all" />
+    <link rel="stylesheet" href="__CSS__/public.css" media="all" />
+    <style type="text/css">
+        .layui-form-pane .layui-form-label 
+        {
+            width: 200px;
+        }
+        .layui-form-pane .layui-input-block 
+        {
+            margin-left: 200px;
+        }
+        .citrixContainer
+        {
+            border: 2px solid #000;
+            margin: 10px 0px;
+        }
+        .citrixContainerTitle
+        {
+            height: 35px;
+            line-height: 35px;
+            color: #000;
+        }
+        .citrix_sort {
+            height: 30px;
+            line-height: 30px;
+            width: 95%;
+            border: 1px solid #fd0000;
+        }
+    </style>
+</head>
+<body class="childrenBody">
+<form class="layui-form layui-form-pane" id="form_array">
+    <div class="layui-form layui-col-sm8">
+        <table class="layui-table">
+            <colgroup>
+                <col>
+                <col width="500">
+                <col width="80">
+            </colgroup>
+        <thead>
+            <tr>
+                <th>链接名称</th>
+                <th>链接地址</th>
+                <th>操作</th>
+            </tr> 
+        </thead>
+        <tbody id="citrixAddList1">
+            {notempty name="$getDataList1"}
+            {volist name="$getDataList1" id="vo" key="k1"}
+            {if condition="$k1 eq 1"} 
+            <tr>
+                <td>
+                    <input type="text" name="{$vo.name_1|aExplodeParam}" class="citrix_sort" value="{$vo.value_1}">
+                </td>
+                <td>
+                    <input type="text" name="{$vo.name_2|aExplodeParam}" class="citrix_sort" value="{$vo.value_2}">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-xs citrixAddList" data-param="1">
+                        <i class="fa fa-plus-square" aria-hidden="true">&nbsp;新增</i>
+                    </button>
+                </td>
+            </tr>
+            {else}
+            <tr id="{$vo.name_1}">
+                <td>
+                    <input type="text" name="{$vo.name_1|aExplodeParam}" class="citrix_sort" value="{$vo.value_1}">
+                </td>
+                <td>
+                    <input type="text" name="{$vo.name_2|aExplodeParam}" class="citrix_sort" value="{$vo.value_2}">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-danger layui-btn-xs citrixDelList" data-param1="1" data-param2="{$vo.name_2|aGetParam}">
+                        <i class="fa fa-close" aria-hidden="true">&nbsp;删除</i>
+                    </button>
+                </td>
+            </tr>
+            {/if}
+            {/volist}
+            {else}
+            <tr>
+                <td>
+                    <input type="text" name="name[1][1]" class="citrix_sort" value="">
+                </td>
+                <td>
+                    <input type="text" name="link[1][1]" class="citrix_sort" value="">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-xs citrixAddList" data-param="1">
+                        <i class="fa fa-plus-square" aria-hidden="true">&nbsp;新增</i>
+                    </button>
+                </td>
+            </tr>
+            {/notempty}
+        </tbody>
+        </table>
+    </div>
+    <div class="layui-form layui-col-sm8">
+        <table class="layui-table">
+            <colgroup>
+                <col>
+                <col width="500">
+                <col width="80">
+            </colgroup>
+        <thead>
+            <tr>
+                <th>链接名称</th>
+                <th>链接地址</th>
+                <th>操作</th>
+            </tr> 
+        </thead>
+        <tbody id="citrixAddList2">
+            {notempty name="$getDataList2"}
+            {volist name="$getDataList2" id="vo" key="k1"}
+            {if condition="$k1 eq 1"} 
+            <tr>
+                <td>
+                    <input type="text" name="{$vo.name_1|aExplodeParam}" class="citrix_sort" value="{$vo.value_1}">
+                </td>
+                <td>
+                    <input type="text" name="{$vo.name_2|aExplodeParam}" class="citrix_sort" value="{$vo.value_2}">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-xs citrixAddList" data-param="2">
+                        <i class="fa fa-plus-square" aria-hidden="true">&nbsp;新增</i>
+                    </button>
+                </td>
+            </tr>
+            {else}
+            <tr id="{$vo.name_1}">
+                <td>
+                    <input type="text" name="{$vo.name_1|aExplodeParam}" class="citrix_sort" value="{$vo.value_1}">
+                </td>
+                <td>
+                    <input type="text" name="{$vo.name_2|aExplodeParam}" class="citrix_sort" value="{$vo.value_2}">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-danger layui-btn-xs citrixDelList" data-param1="2" data-param2="{$vo.name_2|aGetParam}">
+                        <i class="fa fa-close" aria-hidden="true">&nbsp;删除</i>
+                    </button>
+                </td>
+            </tr>
+            {/if}
+            {/volist}
+            {else}
+            <tr>
+                <td>
+                    <input type="text" name="name[2][1]" class="citrix_sort" value="">
+                </td>
+                <td>
+                    <input type="text" name="link[2][1]" class="citrix_sort" value="">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-xs citrixAddList" data-param="2">
+                        <i class="fa fa-plus-square" aria-hidden="true">&nbsp;新增</i>
+                    </button>
+                </td>
+            </tr>
+            {/notempty}
+        </tbody>
+        </table>
+    </div>
+    <div class="layui-form layui-col-sm8">
+        <table class="layui-table">
+            <colgroup>
+                <col>
+                <col width="500">
+                <col width="80">
+            </colgroup>
+        <thead>
+            <tr>
+                <th>链接名称</th>
+                <th>链接地址</th>
+                <th>操作</th>
+            </tr> 
+        </thead>
+        <tbody id="citrixAddList3">
+            {notempty name="$getDataList3"}
+            {volist name="$getDataList3" id="vo" key="k1"}
+            {if condition="$k1 eq 1"} 
+            <tr>
+                <td>
+                    <input type="text" name="{$vo.name_1|aExplodeParam}" class="citrix_sort" value="{$vo.value_1}">
+                </td>
+                <td>
+                    <input type="text" name="{$vo.name_2|aExplodeParam}" class="citrix_sort" value="{$vo.value_2}">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-xs citrixAddList" data-param="3">
+                        <i class="fa fa-plus-square" aria-hidden="true">&nbsp;新增</i>
+                    </button>
+                </td>
+            </tr>
+            {else}
+            <tr id="{$vo.name_1}">
+                <td>
+                    <input type="text" name="{$vo.name_1|aExplodeParam}" class="citrix_sort" value="{$vo.value_1}">
+                </td>
+                <td>
+                    <input type="text" name="{$vo.name_2|aExplodeParam}" class="citrix_sort" value="{$vo.value_2}">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-danger layui-btn-xs citrixDelList" data-param1="3" data-param2="{$vo.name_2|aGetParam}">
+                        <i class="fa fa-close" aria-hidden="true">&nbsp;删除</i>
+                    </button>
+                </td>
+            </tr>
+            {/if}
+            {/volist}
+            {else}
+            <tr>
+                <td>
+                    <input type="text" name="name[3][1]" class="citrix_sort" value="">
+                </td>
+                <td>
+                    <input type="text" name="link[3][1]" class="citrix_sort" value="">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-xs citrixAddList" data-param="3">
+                        <i class="fa fa-plus-square" aria-hidden="true">&nbsp;新增</i>
+                    </button>
+                </td>
+            </tr>
+            {/notempty}
+        </tbody>
+        </table>
+    </div>
+    <div class="layui-form layui-col-sm8">
+        <table class="layui-table">
+            <colgroup>
+                <col>
+                <col width="500">
+                <col width="80">
+            </colgroup>
+        <thead>
+            <tr>
+                <th>链接名称</th>
+                <th>链接地址</th>
+                <th>操作</th>
+            </tr> 
+        </thead>
+        <tbody id="citrixAddList4">
+            {notempty name="$getDataList4"}
+            {volist name="$getDataList4" id="vo" key="k1"}
+            {if condition="$k1 eq 1"} 
+            <tr>
+                <td>
+                    <input type="text" name="{$vo.name_1|aExplodeParam}" class="citrix_sort" value="{$vo.value_1}">
+                </td>
+                <td>
+                    <input type="text" name="{$vo.name_2|aExplodeParam}" class="citrix_sort" value="{$vo.value_2}">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-xs citrixAddList" data-param="4">
+                        <i class="fa fa-plus-square" aria-hidden="true">&nbsp;新增</i>
+                    </button>
+                </td>
+            </tr>
+            {else}
+            <tr id="{$vo.name_1}">
+                <td>
+                    <input type="text" name="{$vo.name_1|aExplodeParam}" class="citrix_sort" value="{$vo.value_1}">
+                </td>
+                <td>
+                    <input type="text" name="{$vo.name_2|aExplodeParam}" class="citrix_sort" value="{$vo.value_2}">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-danger layui-btn-xs citrixDelList" data-param1="4" data-param2="{$vo.name_2|aGetParam}">
+                        <i class="fa fa-close" aria-hidden="true">&nbsp;删除</i>
+                    </button>
+                </td>
+            </tr>
+            {/if}
+            {/volist}
+            {else}
+            <tr>
+                <td>
+                    <input type="text" name="name[4][1]" class="citrix_sort" value="">
+                </td>
+                <td>
+                    <input type="text" name="link[4][1]" class="citrix_sort" value="">
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-xs citrixAddList" data-param="4">
+                        <i class="fa fa-plus-square" aria-hidden="true">&nbsp;新增</i>
+                    </button>
+                </td>
+            </tr>
+            {/notempty}
+        </tbody>
+        </table>
+    </div>
+    <input type="hidden" id="citrixParam1" value="{$citrixParam+2}">
+    <input type="hidden" id="citrixParam2" value="{$citrixParam+2}">
+    <input type="hidden" id="citrixParam3" value="{$citrixParam+2}">
+    <input type="hidden" id="citrixParam4" value="{$citrixParam+2}">
+    <div class="layui-form-item">
+        <button class="layui-btn" lay-submit lay-filter="login">保存系统配置</button>
+    </div>
+</form>
+<script src="__JQ__/jquery.js"></script>
+<script type="text/javascript" src="__LAY__/layui.js"></script>
+<script type="text/javascript">
+
+	layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+        ,layer = layui.layer
+        ,layedit = layui.layedit
+         ,laydate = layui.laydate;
+
+        //表单提交
+        form.on("submit(login)",function(data){
+            var loadLayer = layer.load(0, {shade: false}); 
+            $.ajax({
+                url:"{:url('admin/linkUrl/publish')}",
+                data:$('#form_array').serialize(),
+                type:'post',
+                async: false,
+                dataType : 'json',
+                success:function(res) 
+                {
+                    parent.layer.close(loadLayer);
+                    if(res.code == 1)
+                    {
+                        layer.msg(res.msg,{icon:1});
+                        setTimeout(function(){
+                            location.href = location.href;
+                        },2000);
+                    }else
+                    {
+                        layer.msg(res.msg,{icon:2});
+                    }
+                },
+                error:function()
+                {
+                    layer.alert("Systematic anomaly！",{icon:2});
+                }
+            });
+            return false;
+        });
+
+        //新增
+        $(".citrixAddList").click(function()
+        {
+            var param = $(this).attr('data-param');
+            var citrixParam = $("#citrixParam"+param).val();
+            var citrixHtml = '<tr id="name_'+param+'_'+citrixParam+'">';
+               citrixHtml += '<td>';
+               citrixHtml += '<input type="text" name="name['+param+']['+citrixParam+']" value="" class="citrix_sort">';
+               citrixHtml += '</td>';
+               citrixHtml += '<td>';
+               citrixHtml += '<input type="text" name="link['+param+']['+citrixParam+']" value="" class="citrix_sort">';
+               citrixHtml += '</td>';
+               citrixHtml += ' <td>';
+               citrixHtml += '<button type="button" class="layui-btn layui-btn-danger layui-btn-xs citrixDelList" data-param1="'+param+'" data-param2="'+citrixParam+'" >';
+               citrixHtml += '<i class="fa fa-close" aria-hidden="true">&nbsp;删除</i>';
+               citrixHtml += '</button>';
+               citrixHtml += '</td>';
+               citrixHtml += '</tr>';
+            $("#citrixAddList"+param).append(citrixHtml);
+            $("#citrixParam"+param).val(Number(citrixParam)+1);
+            form.render();
+        });
+        //删除
+        $(document).on('click', '.citrixDelList', function() 
+        {
+            var param1 = $(this).attr('data-param1');
+            var param2 = $(this).attr('data-param2');
+            layer.alert('你确定要删除么？', 
+            {
+                btn: ['确定', '取消']
+                ,icon:3
+                ,yes: function(index)
+                {
+                    $("#name_"+param1+"_"+param2).remove();
+                    layer.closeAll();
+                }
+            });
+        });
+	});
+</script>
+</body>
+</html>

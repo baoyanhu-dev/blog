@@ -1,0 +1,24 @@
+<i-tabs current="{{ current }}" color="#01AAED" bindchange="handleChange" fixed="true" scroll>
+    <i-tab key="all" title="全部"></i-tab>
+    <i-tab wx:for="{{cateList}}" key="{{item.id}}" title="{{item.name}}"></i-tab>
+</i-tabs>
+<view class="brd"></view>
+<!--list-->
+<view wx:for="{{articleList}}">
+  <navigator url="../article/article?article_id={{item.id}}" hover-class="navigator-hover">
+   <!-- <navigator hover-class="navigator-hover"  catchtap="onTouch" id="{{item.id}}"> -->
+    <view class="list">
+      <image src="{{item.filepath}}"></image>
+      <view class="list-right">
+             <view class="list-title">{{item.title}}</view>
+        <view class="list-desc">{{item.description}}</view>
+      </view>
+    </view>
+  </navigator>
+</view>
+<view wx:if="{{is_more}}">
+  <i-load-more />
+</view>
+<view wx:if="{{is_null}}">
+  <i-load-more tip="暂无数据" loading="{{ false }}" />
+</view>

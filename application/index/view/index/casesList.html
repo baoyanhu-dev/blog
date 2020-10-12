@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {include file="public/header"}
+</head>
+<body>
+{include file="public/navList"}
+<!-- banner部分 -->
+<div class="banner case">
+    <div class="title">
+        <p>成功案例</p>
+        <p class="en">Successful Case</p>
+    </div>
+</div>
+<!-- 客户案例 -->
+<div class="main-case citrixDoorVessel">
+    <div class="layui-container">
+        <div class="layui-col-xs12 citrixCaseName">
+            <span class="layui-breadcrumb">
+                {volist name="$dataCasesList.cateList" id="vo" key="k1"}
+                <a href="{:url('index/index/casesList',['id'=>$vo.id])}" {if condition="$id eq $vo.id"} style="background: #5fb878;color: #fff!important;" {/if}>{$vo.name}</a>
+                {/volist}
+            </span>
+        </div>
+        <div class="layui-row layui-col-space25" id="citrixCasePageHtml">
+            {volist name="$casesList" id="vo"}
+            <div class="layui-col-sm6 layui-col-md3" onmousemove="citrixMouseoverCase(this)" onmouseout="citrixMouseoutCase(this)">
+                <div class="citrixCell">
+                    <img src="{$vo.img|citrixGetUrl}">
+                </div>
+                <div class="citrixCellImg citrixCellNone">
+                    <a href="{:url('index/index/Info',['id'=>$vo.id])}">
+                        <dl class="citrixCellQrCode">
+                            <dt>扫码下方二维码体验案例</dt>
+                            <dd><a href="{:url('index/index/Info',['id'=>$vo.id])}" style="color: red">点击查看图文详情介绍</a></dd>
+                        </dl>
+                        <img src="{$vo.code_img|citrixGetUrl}">
+                    </a>
+                </div>
+            </div>
+            {/volist}
+        </div>
+        {notempty name="$casesList"}
+        <div class="citrixPage" id="citrixCasePage"></div>
+        {/notempty}
+    </div>
+</div>
+<!-- footer部分 -->
+{include file="public/footer"}

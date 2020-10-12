@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="__FONT__/css/font-awesome.min.css" media="all"/>
+    <link rel="stylesheet" href="__LAY__/css/layui.css" media="all" />
+    <link rel="stylesheet" href="__CSS__/public.css" media="all" />
+    <style type="text/css">
+        .citrixCheckLevel
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body class="childrenBody">
+    <form class="layui-form layui-form-pane" id="form_array">
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" autocomplete="off" class="layui-input" lay-verify="required" {notempty name="$getInfo.name"} value="{$getInfo.name}"{/notempty}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">地址</label>
+            <div class="layui-input-block">
+              <input type="text" name="address" lay-verify="required" autocomplete="off" class="layui-input" {notempty name="$getInfo.address"} value="{$getInfo.address}"{/notempty}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-block">
+              <input type="text" name="email" lay-verify="required" autocomplete="off" class="layui-input" {notempty name="$getInfo.email"} value="{$getInfo.email}"{else} value="10" {/notempty}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机号</label>
+            <div class="layui-input-block">
+              <input type="text" name="phone" lay-verify="required" autocomplete="off" class="layui-input" {notempty name="$getInfo.phone"} value="{$getInfo.phone}"{else} value="10" {/notempty}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">时间</label>
+            <div class="layui-input-block">
+                 <input type="text" name="create_time" lay-verify="required" autocomplete="off" class="layui-input" {notempty name="$getInfo.create_time"} value="{$getInfo.create_time|date='Y-m-d H:i:s',###}" {/notempty}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">ip</label>
+            <div class="layui-input-block">
+                 <input type="text" name="ip" lay-verify="required" autocomplete="off" class="layui-input" {notempty name="$getInfo.ip"} value="{$getInfo.ip}" {/notempty}>
+            </div>
+        </div>
+        {notempty name="$getInfo.attach"}
+        <div class="layui-form-item">
+            <label class="layui-form-label">附件</label>
+            <div class="layui-input-block" style="top: 2px;">
+                <a href="{$getInfo.attach|citrixGetUrl}" target="_blank" style="height: 35px;line-height: 35px;padding: 11px 15px;background: #1aa094;color: #fff;width: 150px;">点击下载</a>
+            </div>
+        </div>
+        {/notempty}
+    
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">内容</label>
+            <div class="layui-input-block">
+                <textarea class="layui-textarea" name="message"  lay-verify="required">{notempty name="$getInfo.message"}{$getInfo.message|htmlentities}{/notempty}</textarea>
+            </div>
+        </div>
+    </form>
+    
+    <script src="__JQ__/jquery.js"></script>
+   
+</body>
+</html>
